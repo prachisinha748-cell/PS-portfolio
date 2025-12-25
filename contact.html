@@ -1,0 +1,117 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact - Priyanshee Sinha</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { 
+      font-family: 'Inter', sans-serif; 
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      color: white; 
+      overflow-x: hidden;
+    }
+
+    /* Glassmorphism card */
+    .glass-card {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(15px);
+      border-radius: 20px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.5);
+    }
+
+    /* Floating header animation */
+    @keyframes float {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+    }
+    .floating { animation: float 3s ease-in-out infinite; }
+
+    /* Fade-up animation */
+    .fade-up { opacity: 0; transform: translateY(20px); transition: all 0.8s ease-out; }
+    .fade-up.show { opacity: 1; transform: translateY(0); }
+
+    a { transition: 0.3s; }
+  </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-start px-6 py-12">
+
+  <!-- NAVBAR -->
+  <nav class="fixed top-0 left-0 w-full bg-black/40 backdrop-blur-md z-50 flex justify-center py-4 shadow-md">
+    <ul class="flex gap-6 text-white font-medium text-sm">
+      <li><a href="index.html" class="hover:text-pink-400">Home</a></li>
+      <li><a href="About.html" class="hover:text-pink-400">About</a></li>
+      <li><a href="Biotech.html" class="hover:text-pink-400">Biotech</a></li>
+      <a href="skills.html" class="hover:text-pink-400">Skills</a>
+      <li><a href="contact.html" class="hover:text-pink-400">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HEADER -->
+  <header class="mt-20 mb-12 text-center fade-up floating">
+    <h1 class="text-5xl md:text-6xl font-bold text-pink-500 drop-shadow-lg mb-4">Get in Touch</h1>
+    <p class="text-white/70 text-lg md:text-xl">Connect via email, schedule a meeting, or send a message directly.</p>
+  </header>
+
+  <!-- CONTACT INFO -->
+  <div class="glass-card p-8 w-full max-w-2xl space-y-6 fade-up" id="contactInfo">
+    <p class="text-white/80 text-lg flex items-center gap-3">
+      <span class="font-semibold">Current Time:</span> <span id="timezone"></span>
+    </p>
+    <p class="text-white/80 text-lg flex items-center gap-3 hover:text-pink-400 transition-colors">
+      <span class="font-semibold">Email:</span> <a id="contactMail" href="mailto:example@email.com" class="hover:underline">Email Me</a>
+    </p>
+    <p class="text-white/80 text-lg flex items-center gap-3 hover:text-pink-400 transition-colors">
+      <span class="font-semibold">Schedule:</span> <a id="calendarLink" href="#" class="hover:underline">Schedule a Meeting</a>
+    </p>
+    <p class="text-white/80 text-lg flex items-center gap-3">
+      <span class="font-semibold">Phone:</span> +91-XXXXXXXXXX
+    </p>
+    <p class="text-white/80 text-lg flex items-center gap-3">
+      <span class="font-semibold">Location:</span> Nawada, Bihar, India
+    </p>
+  </div>
+
+  <!-- CONTACT FORM -->
+  <form id="contactForm" class="glass-card p-8 w-full max-w-2xl mt-12 space-y-4 fade-up">
+    <h2 class="text-2xl font-semibold text-pink-500 mb-4">Send a Message</h2>
+    <input type="text" placeholder="Your Name" class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-gray-800 text-white">
+    <input type="email" placeholder="Your Email" class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-gray-800 text-white">
+    <textarea id="messageInput" placeholder="Your Message" rows="5" class="w-full p-3 rounded-lg focus:outline-none focus:ring-2 focus:ring-pink-500 bg-gray-800 text-white"></textarea>
+    <p id="charCount" class="text-white/50 text-sm text-right">0 / 500</p>
+    <button type="submit" class="w-full bg-pink-500 hover:bg-pink-600 shadow-lg hover:shadow-pink-400/50 text-white py-3 rounded-lg font-semibold transition-all">Send Message</button>
+  </form>
+
+  <!-- JS -->
+  <script src="javascript.js"></script>
+  <script>
+    // Fade-up animations and form functionality
+    window.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.fade-up').forEach(el => el.classList.add('show'));
+
+      // Live character count
+      const messageInput = document.getElementById('messageInput');
+      const charCount = document.getElementById('charCount');
+      messageInput.addEventListener('input', () => {
+        charCount.textContent = messageInput.value.length + ' / 500';
+      });
+
+      // Form submit alert
+      const form = document.getElementById('contactForm');
+      form.addEventListener('submit', e => {
+        e.preventDefault();
+        alert('Thank you! Your message has been sent.');
+        form.reset();
+        charCount.textContent = '0 / 500';
+      });
+    });
+  </script>
+</body>
+</html>

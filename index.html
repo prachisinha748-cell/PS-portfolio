@@ -1,0 +1,260 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Priyanshee Sinha | Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    a { transition: 0.3s; }
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeUp 1s ease forwards;
+}
+@keyframes fadeUp {
+  to { opacity: 1; transform: translateY(0); }
+}
+.light-mode {
+  background: #f8fafc !important;
+  color: #111827 !important;
+}
+  </style>
+</head>
+
+<body class="relative bg-black text-white overflow-x-hidden">
+    <!-- NAVBAR -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-xl px-6 py-2 rounded-full flex gap-6 text-sm z-50 shadow-lg items-center">
+  <a href="index.html" class="hover:text-pink-400">Home</a>
+  <a href="About.html" class="hover:text-pink-400">About</a>
+  <a href="Biotech.html" class="hover:text-pink-400">Biotech</a>
+  <a href="skills.html" class="hover:text-pink-400">Skills</a>
+  <a href="contact.html" class="hover:text-pink-400">Contact</a>
+
+  <button id="toggleTheme" class="ml-2 px-3 py-1 rounded-full bg-pink-500/20 hover:bg-pink-500/40 text-xs">
+    🌗
+  </button>
+</nav>
+
+<!-- HERO SECTION -->
+<section class="relative w-full h-screen flex flex-col justify-center items-center text-center px-6 fade-in">
+  <div class="absolute inset-0 -z-20">
+    <img src="https://www.galgotiasuniversity.edu.in/public/uploads/media/sUlx1mGKMjgYNiBtWrDMiSEUyDoYudkLp5nreWVw.jpg" class="w-full h-full object-cover brightness-50 contrast-125">
+    <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-80"></div>
+  </div>
+
+  <!-- Optional subtle particle animation background -->
+  <canvas id="particleCanvas" class="absolute inset-0 -z-10"></canvas>
+
+  <h1 class="text-5xl md:text-7xl font-bold mb-4 text-white drop-shadow-lg">Priyanshee Sinha</h1>
+  <p class="text-2xl md:text-3xl text-white/70 mb-6 drop-shadow-md">Biotechnology Enthusiast | BSc Student | Lifelong Learner</p>
+  <p id="greeting" class="text-lg text-pink-300 mb-2"></p>
+  <p id="quote" class="text-sm italic text-white/60 max-w-xl mx-auto"></p>
+  <div class="flex justify-center gap-4">
+    <a href="About.html" class="px-6 py-3 bg-pink-500/80 hover:bg-pink-500 rounded-full font-semibold drop-shadow-lg">About Me</a>
+    <a href="contact.html" class="px-6 py-3 bg-white/10 hover:bg-white/20 rounded-full font-semibold drop-shadow-lg">Contact</a>
+  </div>
+</section>
+
+<!-- Add a script for subtle particles -->
+<script>
+const canvas = document.getElementById('particleCanvas');
+const ctx = canvas.getContext('2d');
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const particles = [];
+for(let i=0;i<100;i++){
+  particles.push({
+    x: Math.random()*canvas.width,
+    y: Math.random()*canvas.height,
+    r: Math.random()*2+1,
+    d: Math.random()*1+0.5
+  });
+}
+
+function draw(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.fillStyle = 'rgba(255,255,255,0.1)';
+  ctx.beginPath();
+  for(let i=0;i<particles.length;i++){
+    let p = particles[i];
+    ctx.moveTo(p.x,p.y);
+    ctx.arc(p.x,p.y,p.r,0,Math.PI*2,true);
+  }
+  ctx.fill();
+  update();
+}
+
+let angle = 0;
+function update(){
+  angle += 0.01;
+  for(let i=0;i<particles.length;i++){
+    let p = particles[i];
+    p.y += Math.cos(angle+p.d)+1+p.r/2;
+    p.x += Math.sin(angle)*2;
+    if(p.x>canvas.width+5 || p.x<0 || p.y>canvas.height){
+      p.x = Math.random()*canvas.width;
+      p.y = -10;
+    }
+  }
+}
+
+setInterval(draw,33);
+window.addEventListener('resize',()=>{canvas.width=window.innerWidth; canvas.height=window.innerHeight});
+</script>
+
+<!-- ABOUT ME SECTION -->
+<section id="about" class="max-w-5xl mx-auto px-6 py-20 space-y-12 fade-in">
+  <h2 class="text-4xl md:text-5xl font-bold mb-6 text-pink-400">About Me</h2>
+  <div class="md:flex gap-12">
+    <div class="md:w-1/2 space-y-6">
+      <p class="text-xl md:text-2xl lg:text-3xl leading-relaxed text-white/70">
+        As a dedicated BSc Biotechnology student, I am passionate about harnessing the power of science to solve real-world challenges in healthcare, agriculture, and environmental sustainability. With a strong foundation in molecular biology, genetics, and microbiology, I am eager to contribute innovative solutions that bridge laboratory discoveries with practical applications.
+      </p>
+      <p class="text-xl md:text-2xl lg:text-3xl leading-relaxed text-white/70">
+        Living in the vibrant town of Nawada, Bihar, I draw inspiration from the resilience of my roots and the boundless opportunities in India's growing biotech sector. I believe life is too short to confine ourselves to routines—embracing this philosophy, I balance rigorous academic pursuits with personal joys, whether it's exploring nature trails, experimenting with sustainable gardening, or diving into the latest scientific podcasts. This holistic approach fuels my creativity and drives me to pursue excellence with enthusiasm and integrity.
+      </p>
+    </div>
+    <div class="md:w-1/2 grid grid-cols-1 gap-6">
+      <img src="https://images.unsplash.com/photo-1531956656798-56686eeef3d4?q=80&w=1708&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg object-cover w-full h-96 md:h-[28rem]">
+      <img src="https://plus.unsplash.com/premium_photo-1681487118711-2c8e629d4313?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" class="rounded-lg object-cover w-full h-96 md:h-[28rem]">
+    </div>
+  </div>
+</section>
+
+<!-- EDUCATION -->
+<section id="education" class="max-w-5xl mx-auto px-6 py-16 space-y-4">
+  <h2 class="text-3xl font-bold mb-4 text-pink-400">Education</h2>
+  <p>Bachelor of Science (BSc) in Biotechnology</p>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="max-w-5xl mx-auto px-6 py-16 space-y-4 fade-in">
+  <h2 class="text-3xl font-bold mb-4 text-pink-400">Skills</h2>
+  <div class="md:flex gap-12">
+    <div class="md:w-1/2">
+      <h3 class="font-semibold mb-2">Technical Skills</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>Laboratory Techniques: PCR, Gel Electrophoresis, Microscopy, Sterile Culturing</li>
+        <li>Bioinformatics Tools: BLAST, NCBI Databases, Basic Python for Sequence Analysis</li>
+        <li>Data Analysis: Microsoft Excel, GraphPad Prism for Statistical Visualization</li>
+        <li>Soft Skills: Research Design, Team Collaboration, Scientific Writing, Problem-Solving</li>
+      </ul>
+    </div>
+    <div class="md:w-1/2">
+      <h3 class="font-semibold mb-2">Languages</h3>
+      <ul class="list-disc list-inside space-y-1">
+        <li>English: Fluent (Professional Proficiency)</li>
+        <li>Hindi: Native</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- JOURNEY TIMELINE -->
+<section id="journey" class="max-w-6xl mx-auto px-6 py-20 space-y-12 fade-in">
+  <h2 class="text-4xl font-bold text-pink-400">My Journey</h2>
+  <div class="space-y-8 border-l-2 border-pink-500/40 pl-8">
+    <div>
+      <h3 class="text-xl font-semibold text-white">Early Curiosity</h3>
+      <p class="text-white/70">
+        My journey into biotechnology began with curiosity about how life works at the smallest scale. From school-level biology experiments to reading about DNA and microbes, I found myself deeply drawn to the science of life.
+      </p>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold text-white">Academic Growth</h3>
+      <p class="text-white/70">
+        As a BSc Biotechnology student, I strengthened my foundation in molecular biology, genetics, and microbiology, while learning how theoretical knowledge transforms into real-world laboratory applications.
+      </p>
+    </div>
+    <div>
+      <h3 class="text-xl font-semibold text-white">Future Vision</h3>
+      <p class="text-white/70">
+        I aim to work at the intersection of biotechnology, data, and innovation — contributing to healthcare, sustainability, and scientific research that creates meaningful impact.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- HIGHLIGHTS / STATS -->
+<section id="highlights" class="max-w-6xl mx-auto px-6 py-16 grid md:grid-cols-3 gap-8 fade-in">
+  <div class="bg-white/5 backdrop-blur-xl p-8 rounded-2xl text-center hover:scale-105 transition">
+    <h3 class="text-4xl font-bold text-pink-400">10+</h3>
+    <p class="text-white/70 mt-2">Academic & Lab Projects</p>
+  </div>
+  <div class="bg-white/5 backdrop-blur-xl p-8 rounded-2xl text-center hover:scale-105 transition">
+    <h3 class="text-4xl font-bold text-pink-400">5+</h3>
+    <p class="text-white/70 mt-2">Core Biotech Techniques</p>
+  </div>
+  <div class="bg-white/5 backdrop-blur-xl p-8 rounded-2xl text-center hover:scale-105 transition">
+    <h3 class="text-4xl font-bold text-pink-400">100%</h3>
+    <p class="text-white/70 mt-2">Curiosity Driven Learning</p>
+  </div>
+</section>
+
+<!-- CALL TO ACTION -->
+<section id="cta" class="max-w-5xl mx-auto px-6 py-20 text-center space-y-6 fade-in">
+  <h2 class="text-4xl md:text-5xl font-bold text-white">
+    Let’s Build the Future with Biotechnology
+  </h2>
+  <p class="text-white/70 text-lg max-w-3xl mx-auto">
+    Whether it’s research collaboration, academic discussion, or innovation in biotech,
+    I’m always open to meaningful conversations and opportunities.
+  </p>
+  <div class="flex justify-center gap-4">
+    <a href="contact.html" class="px-8 py-3 bg-pink-500 hover:bg-pink-600 rounded-full font-semibold shadow-lg">
+      Contact Me
+    </a>
+    <a href="Biotech.html" class="px-8 py-3 bg-white/10 hover:bg-white/20 rounded-full font-semibold shadow-lg">
+      Explore Biotechnology
+    </a>
+  </div>
+</section>
+
+<!-- INTERESTS & PHILOSOPHY -->
+<section id="philosophy" class="max-w-5xl mx-auto px-6 py-16 space-y-4">
+  <h2 class="text-3xl font-bold mb-4 text-pink-400">Interests & Philosophy</h2>
+  <p>
+    Beyond the lab bench, I find joy in the simple yet profound—stargazing on clear Bihar nights, practicing yoga for mental clarity, and cooking fusion dishes inspired by biotech innovations (think lab-grown flavors!). My mantra: Jeevan bahut short hai—life is fleeting—so I chase curiosity with unbridled zeal, ensuring every day blends purpose with pleasure. This mindset not only sharpens my focus in biotechnology but also reminds me that true innovation stems from a joyful, well-rounded spirit.
+  </p>
+</section>
+
+<script>
+/* Greeting */
+function updateGreeting() {
+  const h = new Date().getHours();
+  const greet =
+    h < 12 ? "Good Morning 🌸" :
+    h < 18 ? "Good Afternoon ✨" :
+             "Good Evening 🌙";
+  document.getElementById("greeting").innerText = greet;
+}
+
+/* Quotes */
+const quotes = [
+  "Science is not just knowledge, it's curiosity with courage.",
+  "Biology meets technology where the future begins.",
+  "Small experiments create big revolutions.",
+  "Curiosity is the most powerful gene."
+];
+function updateQuote() {
+  document.getElementById("quote").innerText =
+    quotes[Math.floor(Math.random() * quotes.length)];
+}
+
+/* Theme toggle */
+document.getElementById("toggleTheme").onclick = () =>
+  document.body.classList.toggle("light-mode");
+
+updateGreeting();
+updateQuote();
+setInterval(updateQuote, 10000);
+</script>
+
+</body>
+</html>

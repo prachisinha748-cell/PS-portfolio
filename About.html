@@ -1,0 +1,155 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Prince Raj | Portfolio</title>
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>
+    body { font-family: 'Inter', sans-serif; }
+    a { transition: 0.3s; }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeInUp 1s ease forwards;
+    }
+
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+  </style>
+</head>
+
+<body class="bg-gradient-to-br from-black via-pink-900 to-black text-white">
+
+<!-- NAVBAR -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-md px-6 py-2 rounded-full flex gap-6 text-sm z-50">
+ <a href="index.html" class="hover:text-pink-400">Home</a>
+  <a href="About.html" class="hover:text-pink-400">About</a>
+  <a href="Biotech.html" class="hover:text-cyan-400">Biotech</a>
+  <a href="skills.html" class="hover:text-pink-400">Skills</a>
+  <a href="contact.html" class="hover:text-pink-400">Contact</a>
+</nav>
+
+<!-- MAIN -->
+<div class="max-w-7xl mx-auto px-6 pt-32 pb-20 grid md:grid-cols-3 gap-12">
+
+  <!-- LEFT PROFILE -->
+  <aside class="md:col-span-1 space-y-6">
+    <img src="PS.jpeg"
+      class="w-36 h-36 rounded-full border border-pink-400/20 object-cover">
+
+    <div>
+      <h1 class="text-3xl font-bold">Priyanshee Sinha</h1>
+      <p class="text-white/60">Biotechnology Student</p>
+    </div>
+
+    <p class="text-sm text-white/50">📍 India<br>🌐 English / Hindi</p>
+
+    <div class="flex gap-4 text-sm">
+      <a href="#" class="hover:text-pink-400">GitHub</a>
+      <a href="#" class="hover:text-pink-400">LinkedIn</a>
+      <a href="#" class="hover:text-pink-400">Email</a>
+    </div>
+  </aside>
+
+  <!-- RIGHT CONTENT -->
+  <main class="md:col-span-2">
+    <div class="fade-in space-y-20">
+
+      <!-- ABOUT -->
+      <section id="about">
+        <h2 class="text-2xl font-semibold mb-4">Introduction</h2>
+        <p class="text-white/70 leading-relaxed">
+          Priyanshee is a Biotech engineer and B.Tech student passionate about combining biology and engineering to solve real-world problems.
+          He works on academic projects, innovative experiments, and technical solutions that bridge science and technology.
+        </p>
+      </section>
+
+      <!-- WORK -->
+    <section id="work">
+      <h2 class="text-3xl md:text-4xl font-bold mb-8 text-pink-400">Work Experience</h2>
+      <div class="space-y-8">
+        <div class="bg-white/5 p-6 rounded-xl border border-pink-400/20 shadow-lg">
+          <h3 class="font-semibold text-xl md:text-2xl mb-1">Academic & Biotech-Focused Projects</h3>
+          <p class="text-sm text-white/50 mb-3">2025 – Present</p>
+          <ul class="list-disc list-inside text-white/70 space-y-2">
+            <li><strong>Biotech Portfolio Website Development:</strong> Engineered a responsive online showcase using Next.js for dynamic content and Tailwind CSS for intuitive navigation, highlighting genomic datasets and research visualizations to connect with biotech collaborators.</li>
+            <li><strong>AI & ML in Bioinformatics Projects:</strong> Developed and deployed machine learning models for genomic sequence prediction and protein folding analysis, utilizing Python libraries like scikit-learn to simulate drug-target interactions in microbial systems.</li>
+            <li><strong>Frontend UI for Biotech Tools:</strong> Experimented with responsive interfaces for lab management apps, incorporating HTML and CSS to design user-friendly dashboards for tracking experimental workflows and real-time gene expression data.</li>
+            <li><strong>Biological Data Analytics & Visualization:</strong> Processed experimental datasets from fermentation studies, employing Excel for statistical analysis and Tableau for interactive charts depicting microbial growth kinetics and probiotic efficacy.</li>
+          </ul>
+        </div>
+        <div class="bg-white/5 p-6 rounded-xl border border-pink-400/20 shadow-lg">
+          <h3 class="font-semibold text-xl md:text-2xl mb-1">Creativ3</h3>
+          <p class="text-sm text-white/50 mb-3">Lead Designer | 2025 – 2029</p>
+          <ul class="list-disc list-inside text-white/70 space-y-2">
+            <li>Directed creative branding for science-education initiatives, crafting visual narratives that simplified complex biotech concepts like CRISPR editing for outreach materials and client campaigns.</li>
+            <li>Partnered with stakeholders in educational and health sectors to evolve conceptual sketches into polished graphics, such as infographics on sustainable agriculture and genetic diversity, ensuring scientific accuracy and audience engagement.</li>
+            <li>Orchestrated multi-project design pipelines, from ideation to delivery, prioritizing biotech-themed assets like molecular structure illustrations and data-driven posters for conferences and publications.</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- SKILLS -->
+    <section id="skills">
+      <h2 class="text-3xl md:text-4xl font-bold mb-6 text-pink-400">Skills</h2>
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div>
+          <h3 class="font-semibold mb-2">Programming</h3>
+          <p class="text-white/70 mb-2">Intermediate: C (for efficient bio-simulations), Python (CPython for scripting genomic pipelines)</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Web Development</h3>
+          <p class="text-white/70 mb-2">Intermediate: HTML/CSS (for interactive biotech reports), Next.js, Tailwind CSS (for lab data portals)</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">AI & Machine Learning</h3>
+          <p class="text-white/70 mb-2">Beginner-Intermediate: AI Fundamentals (applied to predictive modeling in genomics), TensorFlow, scikit-learn</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Data & Analytics</h3>
+          <p class="text-white/70 mb-2">Intermediate: Data Analysis (experimental biotech datasets), Excel, Tableau, Pandas (for sequence alignment stats)</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Specialized Domains</h3>
+          <p class="text-white/70 mb-2">Beginner-Intermediate: Bioinformatics (BLAST, NCBI for gene annotation), Trading Basics (simulated for biotech investment models)</p>
+        </div>
+        <div>
+          <h3 class="font-semibold mb-2">Design & Soft Skills</h3>
+          <p class="text-white/70 mb-2">Advanced: Adobe Suite (for scientific illustrations), Client Collaboration, Project Management (agile workflows in research teams)</p>
+        </div>
+      </div>
+    </section>
+
+      <!-- CONTACT -->
+      <section id="contact">
+        <h2 class="text-2xl font-semibold mb-4">Contact</h2>
+        <p class="text-white/70 leading-relaxed">
+          Let's build something cool together —
+          <a href="mailto:yourmail@gmail.com" class="text-pink-400 hover:underline">Email me</a>
+        </p>
+        <div class="flex gap-4 mt-4 text-sm">
+          <a href="#" class="hover:text-pink-400">GitHub</a>
+          <a href="#" class="hover:text-pink-400">LinkedIn</a>
+          <a href="#" class="hover:text-pink-400">Instagram</a>
+        </div>
+      </section>
+
+    </div>
+  </main>
+</div>
+
+</body>
+</html>

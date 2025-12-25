@@ -1,0 +1,314 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Skills | Priyanshee Sinha</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link href="https://plus.unsplash.com/premium_photo-1683121859548-b4514fa05e52?q=80&w=2298&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: 'Inter', sans-serif;
+      background: radial-gradient(circle at top, #1a0b14, #000);
+      color: white;
+    }
+
+    .glow {
+      box-shadow: 0 0 30px rgba(236,72,153,0.25);
+    }
+
+    .glass {
+      background: rgba(255,255,255,0.06);
+      backdrop-filter: blur(16px);
+      border: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(40px);
+      transition: all 1s ease;
+    }
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .card-advanced {
+      position: relative;
+      overflow: hidden;
+    }
+    .card-advanced::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(120deg, transparent, rgba(236,72,153,0.15), transparent);
+      opacity: 0;
+      transition: opacity 0.4s ease;
+    }
+    .card-advanced:hover::before {
+      opacity: 1;
+    }
+
+    .glass:hover {
+      box-shadow: 0 20px 60px rgba(236,72,153,0.25);
+    }
+
+    .thread-card {
+      position: relative;
+      filter: drop-shadow(0 30px 40px rgba(236,72,153,0.25));
+    }
+
+    .thread-card::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 2px;
+      height: 80px;
+      background: linear-gradient(to bottom, rgba(236,72,153,0.9), transparent);
+      animation: sway 4s ease-in-out infinite;
+    }
+
+    @keyframes sway {
+      0%, 100% { transform: translateX(-50%) rotate(0deg); }
+      50% { transform: translateX(-50%) rotate(2deg); }
+    }
+
+    .pin {
+      position: absolute;
+      top: -88px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 10px;
+      height: 10px;
+      background: #ec4899;
+      border-radius: 50%;
+      box-shadow: 0 0 12px rgba(236,72,153,0.8);
+    }
+
+    #particles {
+      position: fixed;
+      inset: 0;
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .magnetic {
+      transition: transform 0.2s ease;
+      will-change: transform;
+    }
+  </style>
+</head>
+
+<body>
+
+<canvas id="particles"></canvas>
+
+<!-- NAVBAR -->
+<nav class="fixed top-5 left-1/2 -translate-x-1/2 bg-black/40 backdrop-blur-xl px-8 py-3 rounded-full flex gap-8 text-sm z-50 border border-pink-400/20 glow">
+  <a href="index.html" class="hover:text-pink-400 transition">Home</a>
+  <a href="About.html" class="hover:text-pink-400 transition">About</a>
+    <a href="Biotech.html" class="hover:text-pink-400 transition">Biotech</a>
+  <a href="skills.html" class="text-pink-400 font-semibold">Skills</a>
+  <a href="contact.html" class="hover:text-pink-400 transition">Contact</a>
+</nav>
+
+<!-- HERO BANNER -->
+<section class="relative w-full h-[70vh] md:h-[85vh] bg-cover bg-center bg-no-repeat"
+  style="background-image: url('https://plus.unsplash.com/premium_photo-1683121859548-b4514fa05e52?q=80&w=2298&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D');">
+
+  <!-- Dark Overlay -->
+  <div class="absolute inset-0 bg-black/65"></div>
+
+  <!-- Hero Content -->
+  <div class="relative z-10 flex flex-col items-center justify-center h-full text-center px-6 reveal parallax">
+    <h1 class="text-5xl md:text-6xl font-bold text-pink-400 mb-6 drop-shadow-lg drop-shadow-2xl">
+      Skills & Expertise
+    </h1>
+    <p class="text-white/80 max-w-3xl mx-auto text-lg md:text-xl">
+      A refined blend of biotechnology knowledge, analytical thinking, creative design,
+      and modern web technologies — crafted with curiosity and precision.
+    </p>
+    <div class="mt-8 w-24 h-1 bg-gradient-to-r from-pink-400 via-pink-300 to-transparent rounded-full"></div>
+  </div>
+
+</section>
+
+<!-- SKILLS GRID -->
+<section class="max-w-7xl mx-auto px-6 py-24 grid md:grid-cols-2 lg:grid-cols-3 gap-10">
+
+  <!-- BIOTECH -->
+  <div class="glass card-advanced thread-card magnetic p-8 rounded-3xl reveal hover:scale-105 hover:shadow-2xl transition">
+    <span class="pin"></span>
+    <div class="w-12 h-12 mb-4 rounded-full bg-pink-500/20 flex items-center justify-center text-2xl">
+      🧬
+    </div>
+    <h2 class="text-2xl font-semibold text-pink-400 mb-4">Biotechnology Core</h2>
+    <ul class="space-y-2 text-white/75">
+      <li>• Molecular Biology & Genetics</li>
+      <li>• Microbiology & Sterile Techniques</li>
+      <li>• PCR, Gel Electrophoresis</li>
+      <li>• Cell & Tissue Culture</li>
+      <li>• Fermentation Processes</li>
+    </ul>
+  </div>
+
+  <!-- BIOINFORMATICS -->
+  <div class="glass card-advanced thread-card magnetic p-8 rounded-3xl reveal hover:scale-105 hover:shadow-2xl transition">
+    <span class="pin"></span>
+    <div class="w-12 h-12 mb-4 rounded-full bg-pink-500/20 flex items-center justify-center text-2xl">
+      📊
+    </div>
+    <h2 class="text-2xl font-semibold text-pink-400 mb-4">Bioinformatics & Data</h2>
+    <ul class="space-y-2 text-white/75">
+      <li>• BLAST & NCBI Databases</li>
+      <li>• Sequence Analysis Basics</li>
+      <li>• Excel & Statistical Visualization</li>
+      <li>• Pandas for Biological Data</li>
+      <li>• Research Data Interpretation</li>
+    </ul>
+  </div>
+
+  <!-- PROGRAMMING -->
+  <div class="glass card-advanced thread-card magnetic p-8 rounded-3xl reveal hover:scale-105 hover:shadow-2xl transition">
+    <span class="pin"></span>
+    <div class="w-12 h-12 mb-4 rounded-full bg-pink-500/20 flex items-center justify-center text-2xl">
+      💻
+    </div>
+    <h2 class="text-2xl font-semibold text-pink-400 mb-4">Programming & Tech</h2>
+    <ul class="space-y-2 text-white/75">
+      <li>• C Programming (Foundations)</li>
+      <li>• Python for Scientific Computing</li>
+      <li>• HTML, CSS, JavaScript</li>
+      <li>• Next.js & Tailwind CSS</li>
+      <li>• Responsive UI Design</li>
+    </ul>
+  </div>
+
+  <!-- AI -->
+  <div class="glass card-advanced thread-card magnetic p-8 rounded-3xl reveal hover:scale-105 hover:shadow-2xl transition">
+    <span class="pin"></span>
+    <div class="w-12 h-12 mb-4 rounded-full bg-pink-500/20 flex items-center justify-center text-2xl">
+      🤖
+    </div>
+    <h2 class="text-2xl font-semibold text-pink-400 mb-4">AI & Machine Learning</h2>
+    <ul class="space-y-2 text-white/75">
+      <li>• AI Fundamentals</li>
+      <li>• scikit-learn Basics</li>
+      <li>• Predictive Modeling (Intro)</li>
+      <li>• Bio-Data Applications</li>
+      <li>• Ethical AI Awareness</li>
+    </ul>
+  </div>
+
+  <!-- DESIGN -->
+  <div class="glass card-advanced thread-card magnetic p-8 rounded-3xl reveal hover:scale-105 hover:shadow-2xl transition">
+    <span class="pin"></span>
+    <div class="w-12 h-12 mb-4 rounded-full bg-pink-500/20 flex items-center justify-center text-2xl">
+      🎨
+    </div>
+    <h2 class="text-2xl font-semibold text-pink-400 mb-4">Design & Creativity</h2>
+    <ul class="space-y-2 text-white/75">
+      <li>• Adobe Photoshop & Illustrator</li>
+      <li>• Scientific Visual Storytelling</li>
+      <li>• UI / UX for Portfolios</li>
+      <li>• Infographics & Posters</li>
+      <li>• Brand Aesthetic Development</li>
+    </ul>
+  </div>
+
+  <!-- SOFT SKILLS -->
+  <div class="glass card-advanced thread-card magnetic p-8 rounded-3xl reveal hover:scale-105 hover:shadow-2xl transition">
+    <span class="pin"></span>
+    <div class="w-12 h-12 mb-4 rounded-full bg-pink-500/20 flex items-center justify-center text-2xl">
+      🌱
+    </div>
+    <h2 class="text-2xl font-semibold text-pink-400 mb-4">Professional Skills</h2>
+    <ul class="space-y-2 text-white/75">
+      <li>• Research Mindset</li>
+      <li>• Problem Solving</li>
+      <li>• Team Collaboration</li>
+      <li>• Scientific Communication</li>
+      <li>• Continuous Learning</li>
+    </ul>
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="text-center text-white/50 py-10">
+  Crafted with curiosity & elegance ✦ Priyanshee Sinha
+</footer>
+
+<script>
+/* Reveal on scroll */
+const revealItems = document.querySelectorAll('.reveal');
+const revealOnScroll = () => {
+  revealItems.forEach(item => {
+    const top = item.getBoundingClientRect().top;
+    if (top < window.innerHeight - 80) item.classList.add('active');
+  });
+};
+window.addEventListener('scroll', revealOnScroll);
+revealOnScroll();
+
+/* Parallax hero */
+window.addEventListener('scroll', () => {
+  document.querySelectorAll('.parallax').forEach(el => {
+    el.style.transform = `translateY(${window.scrollY * 0.15}px)`;
+  });
+});
+
+/* Magnetic cards */
+document.querySelectorAll('.magnetic').forEach(card => {
+  card.addEventListener('mousemove', e => {
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left - rect.width / 2;
+    const y = e.clientY - rect.top - rect.height / 2;
+    card.style.transform = `translate(${x * 0.05}px, ${y * 0.05}px) scale(1.05)`;
+  });
+  card.addEventListener('mouseleave', () => {
+    card.style.transform = 'translate(0,0) scale(1)';
+  });
+});
+
+/* Particle background */
+const canvas = document.getElementById('particles');
+const ctx = canvas.getContext('2d');
+let w, h;
+function resize() {
+  w = canvas.width = window.innerWidth;
+  h = canvas.height = window.innerHeight;
+}
+window.addEventListener('resize', resize);
+resize();
+
+const particles = Array.from({length: 80}, () => ({
+  x: Math.random() * w,
+  y: Math.random() * h,
+  r: Math.random() * 2 + 0.5,
+  dx: (Math.random() - 0.5) * 0.3,
+  dy: (Math.random() - 0.5) * 0.3
+}));
+
+function animate() {
+  ctx.clearRect(0,0,w,h);
+  ctx.fillStyle = 'rgba(236,72,153,0.35)';
+  particles.forEach(p => {
+    p.x += p.dx;
+    p.y += p.dy;
+    if (p.x < 0 || p.x > w) p.dx *= -1;
+    if (p.y < 0 || p.y > h) p.dy *= -1;
+    ctx.beginPath();
+    ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+    ctx.fill();
+  });
+  requestAnimationFrame(animate);
+}
+animate();
+</script>
+
+</body>
+</html>
