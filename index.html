@@ -28,7 +28,7 @@
 
 <body class="relative bg-black text-white overflow-x-hidden">
     <!-- NAVBAR -->
-<nav class="fixed top-5 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-xl px-6 py-2 rounded-full flex gap-6 text-sm z-50 shadow-lg items-center">
+<nav id="navbar" class="fixed top-5 left-1/2 -translate-x-1/2 bg-white/10 backdrop-blur-xl px-6 py-2 rounded-full flex gap-6 text-sm z-50 shadow-lg items-center transition-transform duration-300">
   <div class="bg-white/10 backdrop-blur-xl px-4 py-2 rounded-full shadow-lg 
               flex flex-wrap justify-center items-center 
               gap-3 sm:gap-4 md:gap-6 
@@ -259,6 +259,24 @@ document.getElementById("toggleTheme").onclick = () =>
 updateGreeting();
 updateQuote();
 setInterval(updateQuote, 10000);
+
+/* Auto-hide navbar on scroll */
+let lastScrollY = window.scrollY;
+const navbar = document.getElementById("navbar");
+
+window.addEventListener("scroll", () => {
+  const currentScrollY = window.scrollY;
+
+  if (currentScrollY > lastScrollY && currentScrollY > 100) {
+    // scrolling down
+    navbar.style.transform = "translate(-50%, -120%)";
+  } else {
+    // scrolling up
+    navbar.style.transform = "translate(-50%, 0)";
+  }
+
+  lastScrollY = currentScrollY;
+});
 </script>
 
 </body>
