@@ -23,6 +23,58 @@
   background: #f8fafc !important;
   color: #111827 !important;
 }
+
+/* Fix hero banner darkening in light mode */
+.light-mode section:first-of-type {
+  background: #f8fafc !important;
+}
+
+.light-mode section:first-of-type img {
+  filter: brightness(1) contrast(1) !important;
+}
+
+.light-mode section:first-of-type .bg-gradient-to-br {
+  opacity: 0.25 !important;
+}
+
+.light-mode section:first-of-type canvas {
+  display: none;
+}
+
+.light-mode section,
+.light-mode p,
+.light-mode h1,
+.light-mode h2,
+.light-mode h3,
+.light-mode h4,
+.light-mode li,
+.light-mode span {
+  color: #111827 !important;
+}
+
+.light-mode nav {
+  background: rgba(255,255,255,0.8) !important;
+  backdrop-filter: blur(12px);
+}
+
+.light-mode nav a {
+  color: #111827 !important;
+}
+
+.light-mode .bg-white\/10 {
+  background: rgba(0,0,0,0.05) !important;
+}
+
+.light-mode .text-white,
+.light-mode .text-white\/70,
+.light-mode .text-white\/60 {
+  color: #111827 !important;
+}
+
+.light-mode .text-pink-400,
+.light-mode .text-pink-300 {
+  color: #db2777 !important;
+}
   </style>
 </head>
 
@@ -48,8 +100,9 @@
 <!-- HERO SECTION -->
 <section class="relative w-full h-screen flex flex-col justify-center items-center text-center px-6 fade-in">
   <div class="absolute inset-0 -z-20">
-    <img src="https://www.galgotiasuniversity.edu.in/public/uploads/media/sUlx1mGKMjgYNiBtWrDMiSEUyDoYudkLp5nreWVw.jpg" class="w-full h-full object-cover brightness-50 contrast-125">
-    <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-80"></div>
+    <img src="https://www.galgotiasuniversity.edu.in/public/uploads/media/sUlx1mGKMjgYNiBtWrDMiSEUyDoYudkLp5nreWVw.jpg"
+         class="w-full h-full object-cover brightness-75 contrast-110 transition-all duration-500">
+    <div class="absolute inset-0 bg-gradient-to-br from-black via-gray-900 to-black opacity-60 transition-opacity duration-500"></div>
   </div>
 
   <!-- Optional subtle particle animation background -->
